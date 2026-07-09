@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultwidgetversion='2' b:layoutsversion='3' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html lang="id">
 <head>
-    <meta content='width=device-width, initial-scale=1' name='viewport'/>
-    <title><data:blog.pageTitle/></title>
-  
-  <meta content='MADASA DIGITAL - Portal Pendaftaran Santri Baru' property='og:title'/>
-<meta content='Sistem Informasi &amp; Administrasi Pendaftaran Santri Baru MADRASAH DARUSSALAM' property='og:description'/>
-<meta content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEii4Kx1ciwEKXojO5VYToZ_Z7URFqaAInhBUm9arorbLW4-g0fcfrHlxM_u-i_jhyKcJO5Tf8ghHNBycAI8gAvlF9Ei8LPDIZzr1gdvJKdPnEhPv-rP_LazmXVuGbaUP26XS29I_1TzlGHMOR34kbD1VXZ_zZ19lse5bekzEKK8qmGDpdUuXEXMFkILBvM/s1254/logo-Photoroom_11zon.png' property='og:image'/>
-<meta content='600' property='og:image:width'/>
-<meta content='600' property='og:image:height'/>
-<meta content='website' property='og:type'/>
-<meta expr:content='data:blog.url' property='og:url'/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pendaftaran Santri Baru MADASA</title>
     
-    <b:skin><![CDATA[
+    <!-- Meta Tags -->
+    <meta content='MADASA DIGITAL - Portal Pendaftaran Santri Baru' property='og:title'>
+    <meta content='Sistem Informasi & Administrasi Pendaftaran Santri Baru MADRASAH DARUSSALAM' property='og:description'>
+    <meta content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEii4Kx1ciwEKXojO5VYToZ_Z7URFqaAInhBUm9arorbLW4-g0fcfrHlxM_u-i_jhyKcJO5Tf8ghHNBycAI8gAvlF9Ei8LPDIZzr1gdvJKdPnEhPv-rP_LazmXVuGbaUP26XS29I_1TzlGHMOR34kbD1VXZ_zZ19lse5bekzEKK8qmGDpdUuXEXMFkILBvM/s1254/logo-Photoroom_11zon.png' property='og:image'>
+    <meta content='website' property='og:type'>
+    
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet'>
+    
+    <style>
         :root {
             --primary-color: #00897b; 
             --bg-body: #f4f7f6;
@@ -27,7 +27,7 @@
             background: var(--bg-body); 
             font-family: 'Segoe UI', sans-serif; 
             margin: 0; 
-            padding-bottom: 120px; /* Jarak aman agar tidak tertutup menu */
+            padding-bottom: 120px;
             display: flex;
             flex-direction: column;
             align-items: center; 
@@ -72,16 +72,10 @@
         .content-area { padding: 20px; }
         .post-card { background: white; border-radius: 20px; padding: 25px; margin-bottom: 15px; box-shadow: var(--shadow); }
 
-        .reveal {
-            opacity: 0;
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
+        .reveal { opacity: 0; transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
         .reveal-up { transform: translateY(50px); }
         .reveal-down { transform: translateY(-50px); }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
         .pendaftaran-header { text-align: center; margin-top: 10px; }
         .pendaftaran-header h2 { margin: 0; color: var(--primary-color); font-weight: 800; font-size: 1.2rem; margin-bottom: 10px; }
@@ -99,10 +93,7 @@
             box-sizing: border-box; font-family: inherit; background: #fff; outline: none; transition: border 0.3s;
         }
 
-        /* --- MODERN FILE INPUT STYLE --- */
-        .file-input-card {
-            border: 1px solid #dfe6e9; border-radius: 12px; padding: 12px; background: #fff;
-        }
+        .file-input-card { border: 1px solid #dfe6e9; border-radius: 12px; padding: 12px; background: #fff; }
         .btn-modern-upload {
             display: flex; align-items: center; justify-content: center; gap: 10px;
             background: #f8f9fa; color: #555; padding: 12px; border-radius: 10px;
@@ -111,13 +102,9 @@
         .btn-modern-upload:active { transform: scale(0.98); background: #e6fffa; }
         .btn-modern-upload i { color: var(--primary-color); font-size: 1.1rem; }
 
-        .preview-box {
-            display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dashed #eee;
-        }
+        .preview-box { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dashed #eee; }
         .preview-content { display: flex; align-items: center; gap: 12px; }
-        .img-preview-ui {
-            border-radius: 8px; object-fit: cover; border: 2px solid var(--primary-color); background: #fff;
-        }
+        .img-preview-ui { border-radius: 8px; object-fit: cover; border: 2px solid var(--primary-color); background: #fff; }
         .img-3x4 { width: 45px; aspect-ratio: 3 / 4; }
         .img-kk { width: 70px; aspect-ratio: 3 / 2; }
         .file-info-text { font-size: 0.75rem; color: #2d3436; font-weight: bold; }
@@ -126,15 +113,10 @@
         .btn-submit:active { transform: scale(0.98); }
         .btn-submit:disabled { opacity: 0.7; cursor: not-allowed; } 
 
-        .btn-ok { 
-            background: var(--primary-color); color: white; border: none; 
-            padding: 10px 40px; border-radius: 10px; font-weight: 700; 
-            margin-top: 15px; cursor: pointer; transition: 0.3s; 
-        }
+        .btn-ok { background: var(--primary-color); color: white; border: none; padding: 10px 40px; border-radius: 10px; font-weight: 700; margin-top: 15px; cursor: pointer; transition: 0.3s; }
 
         .bottom-nav {
-            position: fixed; bottom: 0; 
-            width: 100%; max-width: var(--app-width);
+            position: fixed; bottom: 0; width: 100%; max-width: var(--app-width);
             background: var(--glass); backdrop-filter: blur(15px);
             display: flex; padding: 15px 0; border-top: 1px solid rgba(0,0,0,0.05);
             z-index: 1000; border-radius: 25px 25px 0 0;
@@ -158,18 +140,13 @@
         #toastNotif { visibility: hidden; min-width: 250px; background-color: #e74c3c; color: #fff; text-align: center; border-radius: 12px; padding: 15px 20px; position: fixed; z-index: 3000; left: 50%; bottom: 20px; transform: translateX(-50%); font-size: 0.9rem; font-weight: bold; opacity: 0; transition: 0.3s; }
         #toastNotif.show { visibility: visible; opacity: 1; bottom: 100px; }
 
-        /* --- STYLES UNTUK DAFTAR SANTRI SCROLLABLE --- */
         .filter-container { display: flex; gap: 8px; justify-content: center; margin-bottom: 15px; flex-wrap: wrap; padding: 0 10px; }
         .filter-btn { padding: 8px 12px; border-radius: 20px; border: 1px solid var(--primary-color); background: white; color: var(--primary-color); cursor: pointer; font-size: 11px; font-weight: bold; transition: 0.3s; }
         .filter-btn.active { background: var(--primary-color); color: white; }
         
         .list-scroll-box { 
-            max-height: 250px; 
-            overflow-y: auto; 
-            padding: 5px; 
-            margin-top: 10px;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary-color) #f1f1f1;
+            max-height: 250px; overflow-y: auto; padding: 5px; margin-top: 10px;
+            scrollbar-width: thin; scrollbar-color: var(--primary-color) #f1f1f1;
         }
         .list-scroll-box::-webkit-scrollbar { width: 6px; }
         .list-scroll-box::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 10px; }
@@ -178,8 +155,7 @@
         .santri-meta { font-size: 9px; color: #999; text-align: right; }
         .santri-nama-list { font-weight: 800; color: var(--text-dark); font-size: 13px; text-transform: uppercase; margin-bottom: 2px; }
         .santri-kelas-tag { font-size: 10px; color: var(--primary-color); font-weight: bold; }
-    ]]></b:skin>
-    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet'/>
+    </style>
 </head>
 <body>
     <div class='app-container'>
@@ -189,7 +165,7 @@
             </div>
             <div class='header-title'>
                 <h1>MADASA DIGITAL</h1>
-                <p>Portal Sistem Informasi &amp; Administrasi</p>
+                <p>Portal Sistem Informasi & Administrasi</p>
             </div>
         </header>
 
@@ -211,7 +187,7 @@
                         </select>
                     </div>
                     <div class='input-group-form reveal reveal-up'><label>Tempat, Tanggal Lahir</label><input name='ttl' placeholder='Contoh: Bangkalan, 2 Desember 2026' type='text'/></div>
-                    <div class='input-group-form reveal reveal-up'><label>Alamat Domisili</label><textarea name='alamat' placeholder='Contoh: Batukessel Bandang Laok' rows='2'/></div>
+                    <div class='input-group-form reveal reveal-up'><label>Alamat Domisili</label><textarea name='alamat' placeholder='Contoh: Batukessel Bandang Laok' rows='2'></textarea></div>
                     
                     <div class='input-group-form reveal reveal-up'>
                         <label>Pilih Kelas</label>
@@ -233,13 +209,13 @@
                         <label>Unggah Foto Santri (3x4)</label>
                         <div class='file-input-card'>
                             <input accept='image/*' id='fotoSantri' name='foto' style='display:none;' type='file'/>
-                            <div class='btn-modern-upload' onclick='document.getElementById(&apos;fotoSantri&apos;).click()'>
-                                <i class='fa-solid fa-camera-retro'/> <span>Pilih Foto Santri</span>
+                            <div class='btn-modern-upload' onclick='document.getElementById("fotoSantri").click()'>
+                                <i class='fa-solid fa-camera-retro'></i> <span>Pilih Foto Santri</span>
                             </div>
                             <div class='preview-box' id='boxPreviewFoto'>
                                 <div class='preview-content'>
                                     <img class='img-preview-ui img-3x4' id='previewFoto' src=''/>
-                                    <div class='file-info-text' id='nameFoto'/>
+                                    <div class='file-info-text' id='nameFoto'></div>
                                 </div>
                             </div>
                         </div>
@@ -249,13 +225,13 @@
                         <label>Unggah Gambar KK</label>
                         <div class='file-input-card'>
                             <input accept='image/*' id='fotoKK' name='kk' style='display:none;' type='file'/>
-                            <div class='btn-modern-upload' onclick='document.getElementById(&apos;fotoKK&apos;).click()'>
-                                <i class='fa-solid fa-file-image'/> <span>Pilih Gambar KK</span>
+                            <div class='btn-modern-upload' onclick='document.getElementById("fotoKK").click()'>
+                                <i class='fa-solid fa-file-image'></i> <span>Pilih Gambar KK</span>
                             </div>
                             <div class='preview-box' id='boxPreviewKK'>
                                 <div class='preview-content'>
                                     <img class='img-preview-ui img-kk' id='previewKK' src=''/>
-                                    <div class='file-info-text' id='nameKK'/>
+                                    <div class='file-info-text' id='nameKK'></div>
                                 </div>
                             </div>
                         </div>
@@ -270,739 +246,51 @@
             </div>
 
             <div class='form-section-title reveal reveal-up' style='text-align:center; background:none; border:none; font-size:1.1rem;'>SANTRI TERDAFTAR</div>
-          <div style='border-bottom: 1px solid #009688; margin-bottom: 20px;'/>
+            <div style='border-bottom: 1px solid #009688; margin-bottom: 20px;'></div>
             
             <div class='filter-container reveal reveal-up' id='filterBar'>
-              <button class='filter-btn active' onclick='filterKelas(&quot;SEMUA&quot;, this)'>SEMUA</button>
-              <button class='filter-btn' onclick='filterKelas(&quot;TK RA&quot;, this)'>TK RA</button>
-              <button class='filter-btn' onclick='filterKelas(&quot;IBTIDAIYAH&quot;, this)'>IBTIDAIYAH</button>
-              <button class='filter-btn' onclick='filterKelas(&quot;TSANAWIYAH&quot;, this)'>TSANAWIYAH</button>
+              <button class='filter-btn active' onclick='filterKelas("SEMUA", this)'>SEMUA</button>
+              <button class='filter-btn' onclick='filterKelas("TK RA", this)'>TK RA</button>
+              <button class='filter-btn' onclick='filterKelas("IBTIDAIYAH", this)'>IBTIDAIYAH</button>
+              <button class='filter-btn' onclick='filterKelas("TSANAWIYAH", this)'>TSANAWIYAH</button>
             </div>
 
             <div class='list-scroll-box reveal reveal-up' id='listSantriTampil'>
               <p style='text-align:center; font-size:12px; color:#888;'>Memuat data santri...</p>
             </div>
-            
-            <b:section id='main-section' name='Main Content' showaddelement='yes'>
-              <b:widget id='Blog1' locked='false' title='Postingan Blog' type='Blog' version='2' visible='true'>
-                <b:widget-settings>
-                  <b:widget-setting name='showDateHeader'>false</b:widget-setting>
-                  <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
-                  <b:widget-setting name='showShareButtons'>false</b:widget-setting>
-                  <b:widget-setting name='showCommentLink'>true</b:widget-setting>
-                  <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
-                  <b:widget-setting name='showAuthor'>true</b:widget-setting>
-                  <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
-                  <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
-                  <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
-                  <b:widget-setting name='reactionsLabel'/>
-                  <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
-                  <b:widget-setting name='style.layout'>1x1</b:widget-setting>
-                  <b:widget-setting name='showLabels'>true</b:widget-setting>
-                  <b:widget-setting name='showLocation'>true</b:widget-setting>
-                  <b:widget-setting name='showTimestamp'>true</b:widget-setting>
-                  <b:widget-setting name='postsPerAd'>1</b:widget-setting>
-                  <b:widget-setting name='showBacklinks'>false</b:widget-setting>
-                  <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
-                  <b:widget-setting name='showInlineAds'>false</b:widget-setting>
-                  <b:widget-setting name='showReactions'>false</b:widget-setting>
-                </b:widget-settings>
-                <b:includable id='main'>
-                        <b:loop values='data:posts' var='post'>
-                            <div class='post-card reveal reveal-up'>
-                                <h3><data:post.title/></h3>
-                                <p><data:post.snippet/></p>
-                                <a expr:href='data:post.url' style='color: var(--primary-color); font-weight: bold; text-decoration: none; font-size: 0.85rem;'>Detail Selengkapnya</a>
-                            </div>
-                        </b:loop>
-                    </b:includable>
-                <b:includable id='aboutPostAuthor'>
-  <div class='author-name'>
-    <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
-      <span>
-        <data:post.author.name/>
-      </span>
-    </a>
-  </div>
-  <div>
-    <span class='author-desc'>
-      <data:post.author.aboutMe/>
-    </span>
-  </div>
-</b:includable>
-                <b:includable id='addComments'>
-  <a expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
-    <b:message name='messages.postAComment'/>
-  </a>
-</b:includable>
-                <b:includable id='blogThisShare'>
-  <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' var='onclick'>
-    <b:include name='platformShare'/>
-  </b:with>
-</b:includable>
-                <b:includable id='bylineByName' var='byline'>
-  <b:switch var='data:byline.name'>
-  <b:case value='share'/>
-    <b:include cond='data:post.shareUrl' name='postShareButtons'/>
-  <b:case value='comments'/>
-    <b:include cond='data:post.allowComments' name='postCommentsLink'/>
-  <b:case value='location'/>
-    <b:include cond='data:post.location' name='postLocation'/>
-  <b:case value='timestamp'/>
-    <b:include cond='not data:view.isPage' name='postTimestamp'/>
-  <b:case value='author'/>
-    <b:include name='postAuthor'/>
-  <b:case value='labels'/>
-    <b:include cond='data:post.labels' name='postLabels'/>
-  <b:case value='icons'/>
-    <b:include cond='data:post.emailPostUrl' name='emailPostIcon'/>
-  </b:switch>
-</b:includable>
-                <b:includable id='bylineRegion' var='regionItems'>
-  <b:loop values='data:regionItems' var='byline'>
-    <b:include data='byline' name='bylineByName'/>
-  </b:loop>
-</b:includable>
-                <b:includable id='commentAuthorAvatar'>
-  <div class='avatar-image-container'>
-    <img class='author-avatar' expr:src='data:comment.authorAvatarSrc' height='35' width='35'/>
-  </div>
-</b:includable>
-                <b:includable id='commentDeleteIcon' var='comment'>
-  <span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
-    <b:if cond='data:showCmtPopup'>
-      <div class='goog-toggle-button'>
-        <div class='goog-inline-block comment-action-icon'/>
-      </div>
-    <b:else/>
-      <a class='comment-delete' expr:href='data:comment.deleteUrl' expr:title='data:messages.deleteComment'>
-        <img src='https://resources.blogblog.com/img/icon_delete13.gif'/>
-      </a>
-    </b:if>
-  </span>
-</b:includable>
-                <b:includable id='commentForm' var='post'>
-  <div class='comment-form'>
-    <a name='comment-form'/>
-    <h4 id='comment-post-message'><data:messages.postAComment/></h4>
-    <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
-      <p><data:this.messages.blogComment/></p>
-    </b:if>
-    <b:include data='post' name='commentFormIframeSrc'/>
-    <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
-    <data:post.cmtfpIframe/>
-    <script type='text/javascript'>
-      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
-    </script>
-  </div>
-</b:includable>
-                <b:includable id='commentFormIframeSrc' var='post'>
-  <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
-</b:includable>
-                <b:includable id='commentItem' var='comment'>
-  <div class='comment' expr:id='&quot;c&quot; + data:comment.id'>
-    <b:include cond='data:blog.enabledCommentProfileImages' name='commentAuthorAvatar'/>
-
-    <div class='comment-block'>
-      <div class='comment-author'>
-        <b:if cond='data:comment.authorUrl'>
-          <b:message name='messages.authorSaidWithLink'>
-            <b:param expr:value='data:comment.author' name='authorName'/>
-            <b:param expr:value='data:comment.authorUrl' name='authorUrl'/>
-          </b:message>
-        <b:else/>
-          <b:message name='messages.authorSaid'>
-            <b:param expr:value='data:comment.author' name='authorName'/>
-          </b:message>
-        </b:if>
-      </div>
-      <div expr:class='&quot;comment-body&quot; + (data:comment.isDeleted ? &quot; deleted&quot; : &quot;&quot;)'>
-        <data:comment.body/>
-      </div>
-      <div class='comment-footer'>
-        <span class='comment-timestamp'>
-          <a expr:href='data:comment.url' title='comment permalink'>
-            <data:comment.timestamp/>
-          </a>
-          <b:include data='comment' name='commentDeleteIcon'/>
-        </span>
-      </div>
-    </div>
-  </div>
-</b:includable>
-                <b:includable id='commentList' var='comments'>
-  <div id='comments-block'>
-    <b:loop values='data:comments' var='comment'>
-      <b:include data='comment' name='commentItem'/>
-    </b:loop>
-  </div>
-</b:includable>
-                <b:includable id='commentPicker' var='post'>
-  <b:if cond='data:post.showThreadedComments'>
-    <b:include data='post' name='threadedComments'/>
-  <b:else/>
-    <b:include data='post' name='comments'/>
-  </b:if>
-</b:includable>
-                <b:includable id='comments' var='post'>
-  <section expr:class='&quot;comments&quot; + (data:post.embedCommentForm ? &quot; embed&quot; : &quot;&quot;)' expr:data-num-comments='data:post.numberOfComments' id='comments'>
-    <a name='comments'/>
-    <b:if cond='data:post.allowComments'>
-
-      <b:include name='commentsTitle'/>
-
-      <div expr:id='data:widget.instanceId + &quot;_comments-block-wrapper&quot;'>
-        <b:include cond='data:post.comments' data='post.comments' name='commentList'/>
-      </div>
-
-      <b:if cond='data:post.commentPagingRequired'>
-        <div class='paging-control-container'>
-          <b:if cond='data:post.hasOlderLinks'>
-            <a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'>
-              <data:messages.oldest/>
-            </a>
-            <a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'>
-              <data:messages.older/>
-            </a>
-          </b:if>
-
-          <span class='comment-range-text'>
-            <data:post.commentRangeText/>
-          </span>
-
-          <b:if cond='data:post.hasNewerLinks'>
-            <a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'>
-              <data:messages.newer/>
-            </a>
-            <a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'>
-              <data:messages.newest/>
-            </a>
-          </b:if>
-        </div>
-      </b:if>
-
-      <div class='footer'>
-        <b:if cond='data:post.embedCommentForm'>
-          <b:if cond='data:post.allowNewComments'>
-            <b:include data='post' name='commentForm'/>
-          <b:else/>
-            <data:post.noNewCommentsText/>
-          </b:if>
-        <b:else/>
-          <b:if cond='data:post.allowComments'>
-            <b:include data='post' name='addComments'/>
-          </b:if>
-        </b:if>
-      </div>
-    </b:if>
-    <b:if cond='data:showCmtPopup'>
-      <div id='comment-popup'>
-        <iframe allowtransparency='allowtransparency' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
-        </iframe>
-      </div>
-    </b:if>
-  </section>
-</b:includable>
-                <b:includable id='commentsLink'>
-  <a class='comment-link' expr:href='data:post.commentsUrl' expr:onclick='data:post.commentsUrlOnclick'>
-    <b:if cond='data:post.numberOfComments &gt; 0'>
-      <b:message name='messages.numberOfComments'>
-        <b:param expr:value='data:post.numberOfComments' name='numComments'/>
-      </b:message>
-    <b:else/>
-      <data:messages.postAComment/>
-    </b:if>
-  </a>
-</b:includable>
-                <b:includable id='commentsLinkIframe'>
-  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
-</b:includable>
-                <b:includable id='commentsTitle'>
-  <h3 class='title'><data:messages.comments/></h3>
-</b:includable>
-                <b:includable id='defaultAdUnit'>
-  <ins class='adsbygoogle' data-ad-format='auto' expr:data-ad-client='data:adClientId ?: data:blog.adsenseClientId' expr:data-ad-host='data:blog.adsenseHostId' expr:style='data:style ?: &quot;display: block;&quot;'>
-    <b:attr cond='not data:blog.analytics4' expr:value='data:blog.analyticsAccountNumber' name='data-analytics-uacct'/>
-  </ins>
-  <script>
-   (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</b:includable>
-                <b:includable id='emailPostIcon'>
-  <span class='byline post-icons'>
-    <!-- email post links -->
-    <span class='item-action'>
-      <a expr:href='data:post.emailPostUrl' expr:title='data:messages.emailPost'>
-        <b:include data='{ iconClass: &quot;touch-icon sharing-icon&quot; }' name='emailIcon'/>
-      </a>
-    </span>
-  </span>
-</b:includable>
-                <b:includable id='facebookShare'>
-  <b:with value='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' var='onclick'>
-    <b:include name='platformShare'/>
-  </b:with>
-</b:includable>
-                <b:includable id='feedLinks'>
-  <b:if cond='!data:view.isPost'> <!-- Blog feed links -->
-    <b:if cond='data:feedLinks'>
-      <div class='blog-feeds'>
-        <b:include data='feedLinks' name='feedLinksBody'/>
-      </div>
-    </b:if>
-  <b:else/> <!--Post feed links -->
-    <div class='post-feeds'>
-      <b:loop values='data:posts' var='post'>
-        <b:if cond='data:post.allowComments and data:post.feedLinks'>
-          <b:include data='post.feedLinks' name='feedLinksBody'/>
-        </b:if>
-      </b:loop>
-    </div>
-  </b:if>
-</b:includable>
-                <b:includable id='feedLinksBody' var='links'>
-  <div class='feed-links'>
-  <data:messages.subscribeTo/>
-  <b:loop values='data:links' var='f'>
-     <a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'><data:f.name/> (<data:f.feedType/>)</a>
-  </b:loop>
-  </div>
-</b:includable>
-                <b:includable id='footerBylines'>
-  <b:if cond='data:widgets.Blog.first.footerBylines'>
-    <b:loop index='i' values='data:widgets.Blog.first.footerBylines' var='region'>
-      <b:if cond='not data:region.items.empty'>
-        <div expr:class='&quot;post-footer-line post-footer-line-&quot; + (data:i + 1)'>
-          <b:with value='&quot;footer-&quot; + (data:i + 1)' var='regionName'>
-            <b:include data='region.items' name='bylineRegion'/>
-          </b:with>
-        </div>
-      </b:if>
-    </b:loop>
-  </b:if>
-</b:includable>
-                <b:includable id='googlePlusShare'>
-</b:includable>
-                <b:includable id='headerByline'>
-  <b:if cond='data:widgets.Blog.first.headerByline'>
-    <div class='post-header'>
-      <div class='post-header-line-1'>
-        <b:with value='&quot;header-1&quot;' var='regionName'>
-          <b:include data='data:widgets.Blog.first.headerByline.items' name='bylineRegion'/>
-        </b:with>
-      </div>
-    </div>
-  </b:if>
-</b:includable>
-                <b:includable id='homePageLink'>
-  <a class='home-link' expr:href='data:blog.homepageUrl'>
-    <data:messages.home/>
-  </a>
-</b:includable>
-                <b:includable id='iframeComments' var='post'>
-  <!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
-</b:includable>
-                <b:includable id='inlineAd' var='post'>
-  <b:if cond='!data:view.isPreview'>
-    <b:if cond='data:this.adCode or data:this.adClientId or data:blog.adsenseClientId'>
-      <!-- Ad -->
-      <div class='inline-ad'>
-        <b:if cond='data:this.adCode != &quot;&quot;'>
-          <data:this.adCode/>
-        <b:else/>
-          <b:include cond='data:this.adClientId or data:blog.adsenseClientId' name='defaultAdUnit'/>
-        </b:if>
-      </div>
-    </b:if>
-  <b:else/>
-    <div class='inline-ad'>
-      <div class='inline-ad-placeholder'>
-        <span><b:message name='messages.adsGoHere'/></span>
-      </div>
-    </div>
-  </b:if>
-</b:includable>
-                <b:includable id='linkShare'>
-  <b:with value='&quot;window.prompt(\&quot;Copy to clipboard: Ctrl+C, Enter\&quot;, \&quot;&quot; + data:originalUrl + &quot;\&quot;); return false;&quot;' var='onclick'>
-    <b:include name='platformShare'/>
-  </b:with>
-</b:includable>
-                <b:includable id='nextPageLink'>
-  <a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:messages.olderPosts'>
-    <data:messages.olderPosts/>
-  </a>
-</b:includable>
-                <b:includable id='otherSharingButton'>
-  <span class='sharing-platform-button sharing-element-other' expr:aria-label='data:messages.shareToOtherApps.escaped' expr:data-url='data:originalUrl' expr:title='data:messages.shareToOtherApps.escaped' role='menuitem' tabindex='-1'>
-    <b:with value='{key: &quot;sharingOther&quot;}' var='platform'>
-      <b:include name='sharingPlatformIcon'/>
-    </b:with>
-    <span class='platform-sharing-text'><data:messages.shareOtherApps.escaped/></span>
-  </span>
-</b:includable>
-                <b:includable id='platformShare'>
-  <a expr:class='&quot;goog-inline-block sharing-&quot; + data:platform.key' expr:data-url='data:originalUrl' expr:href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:onclick='data:onclick ? data:onclick : &quot;&quot;' expr:title='data:platform.shareMessage' target='_blank'>
-    <span class='share-button-link-text'>
-      <data:platform.shareMessage/>
-    </span>
-  </a>
-</b:includable>
-                <b:includable id='post' var='post'>
-  <div class='post'>
-    <b:include data='post' name='postMeta'/>
-    <b:include data='post' name='postTitle'/>
-    <b:include name='headerByline'/>
-    <b:if cond='data:view.isSingleItem'>
-      <b:include data='post' name='postBody'/>
-    <b:else/>
-      <b:include data='post' name='postBodySnippet'/>
-      <b:include data='post' name='postJumpLink'/>
-    </b:if>
-    <b:include data='post' name='postFooter'/>
-  </div>
-</b:includable>
-                <b:includable id='postAuthor'>
-  <span class='byline post-author vcard'>
-    <span class='post-author-label'>
-      <data:byline.label/>
-    </span>
-    <span class='fn'>
-      <b:if cond='data:post.author.profileUrl'>
-        <meta expr:content='data:post.author.profileUrl'/>
-        <a class='g-profile' expr:href='data:post.author.profileUrl' rel='author' title='author profile'>
-          <span><data:post.author.name/></span>
-        </a>
-      <b:else/>
-        <span><data:post.author.name/></span>
-      </b:if>
-    </span>
-  </span>
-</b:includable>
-                <b:includable id='postBody' var='post'>
-  <!-- If metaDescription is empty, use the post body as the schema.org description too, for G+/FB snippeting. -->
-  <div class='post-body entry-content float-container' expr:id='&quot;post-body-&quot; + data:post.id'>
-    <data:post.body/>
-  </div>
-</b:includable>
-                <b:includable id='postBodySnippet' var='post'>
-  <b:include data='post' name='postBody'/>
-</b:includable>
-                <b:includable id='postCommentsAndAd' var='post'>
-  <article class='post-outer-container'>
-    <!-- Post title and body -->
-    <div class='post-outer'>
-      <b:include data='post' name='post'/>
-    </div>
-
-    <!-- Comments -->
-    <b:include cond='data:view.isSingleItem' data='post' name='commentPicker'/>
-
-    <!-- Show ad inside post container, after comments, if single item. -->
-    <b:include cond='data:view.isSingleItem and data:post.includeAd' data='post' name='inlineAd'/>
-  </article>
-
-  <!-- Show ad outside post container (between posts) for feed pages. -->
-  <b:include cond='data:view.isMultipleItems and data:post.includeAd' data='post' name='inlineAd'/>
-</b:includable>
-                <b:includable id='postCommentsLink'>
-  <b:if cond='data:view.isMultipleItems'>
-    <span class='byline post-comment-link container'>
-      <b:include cond='data:post.commentSource != 1' name='commentsLink'/>
-    </span>
-  </b:if>
-</b:includable>
-                <b:includable id='postFooter' var='post'>
-  <div class='post-footer'>
-    <b:include name='footerBylines'/>
-    <b:include data='post' name='postFooterAuthorProfile'/>
-  </div>
-</b:includable>
-                <b:includable id='postFooterAuthorProfile' var='post'>
-  <b:if cond='data:post.author.aboutMe and data:view.isPost'>
-    <div class='author-profile'>
-      <b:if cond='data:post.author.authorPhoto.url'>
-        <img class='author-image' expr:src='data:post.author.authorPhoto.url' width='50px'/>
-        <div class='author-about'>
-          <b:include data='post' name='aboutPostAuthor'/>
-        </div>
-      <b:else/>
-        <b:include data='post' name='aboutPostAuthor'/>
-      </b:if>
-    </div>
-  </b:if>
-</b:includable>
-                <b:includable id='postHeader' var='post'>
-  <b:include name='headerByline'/>
-</b:includable>
-                <b:includable id='postJumpLink' var='post'>
-  <div class='jump-link flat-button'>
-    <a expr:href='data:post.url fragment &quot;more&quot;' expr:title='data:post.title'>
-      <b:eval expr='data:blog.jumpLinkMessage'/>
-    </a>
-  </div>
-</b:includable>
-                <b:includable id='postLabels'>
-  <span class='byline post-labels'>
-    <span class='byline-label'><data:byline.label/></span>
-    <b:loop index='i' values='data:post.labels' var='label'>
-      <a expr:href='data:label.url' rel='tag'>
-        <data:label.name/>
-      </a>
-    </b:loop>
-  </span>
-</b:includable>
-                <b:includable id='postLocation'>
-  <span class='byline post-location'>
-    <data:byline.label/>
-    <a expr:href='data:post.location.mapsUrl' target='_blank'><data:post.location.name/></a>
-  </span>
-</b:includable>
-                <b:includable id='postMeta' var='post'>
-  <b:include data='post' name='postMetadataJSON'/>
-</b:includable>
-                <b:includable id='postMetadataJSONImage'>
-  &quot;image&quot;: {
-    &quot;@type&quot;: &quot;ImageObject&quot;,
-    <b:if cond='data:post.featuredImage.isResizable'>
-    &quot;url&quot;: &quot;<b:eval expr='resizeImage(data:post.featuredImage, 1200, &quot;1200:630&quot;)'/>&quot;,
-    &quot;height&quot;: 630,
-    &quot;width&quot;: 1200
-    <b:else/>
-    &quot;url&quot;: &quot;https://blogger.googleusercontent.com/img/b/U2hvZWJveA/AVvXsEgfMvYAhAbdHksiBA24JKmb2Tav6K0GviwztID3Cq4VpV96HaJfy0viIu8z1SSw_G9n5FQHZWSRao61M3e58ImahqBtr7LiOUS6m_w59IvDYwjmMcbq3fKW4JSbacqkbxTo8B90dWp0Cese92xfLMPe_tg11g/w1200/&quot;,
-    &quot;height&quot;: 348,
-    &quot;width&quot;: 1200
-    </b:if>
-  },
-</b:includable>
-                <b:includable id='postMetadataJSONPublisher'>
- &quot;publisher&quot;: {
-    &quot;@type&quot;: &quot;Organization&quot;,
-    &quot;name&quot;: &quot;Blogger&quot;,
-    &quot;logo&quot;: {
-      &quot;@type&quot;: &quot;ImageObject&quot;,
-      &quot;url&quot;: &quot;https://blogger.googleusercontent.com/img/b/U2hvZWJveA/AVvXsEgfMvYAhAbdHksiBA24JKmb2Tav6K0GviwztID3Cq4VpV96HaJfy0viIu8z1SSw_G9n5FQHZWSRao61M3e58ImahqBtr7LiOUS6m_w59IvDYwjmMcbq3fKW4JSbacqkbxTo8B90dWp0Cese92xfLMPe_tg11g/h60/&quot;,
-      &quot;width&quot;: 206,
-      &quot;height&quot;: 60
-    }
-  },
-</b:includable>
-                <b:includable id='postPagination'>
-  <div class='blog-pager container' id='blog-pager'>
-    <b:include cond='data:newerPageUrl' name='previousPageLink'/>
-    <b:include cond='data:olderPageUrl' name='nextPageLink'/>
-    <b:include cond='data:view.url != data:blog.homepageUrl' name='homePageLink'/>
-  </div>
-</b:includable>
-                <b:includable id='postReactions'>
-  <!-- Reaction feature no longer available. The includable is retained for backwards-compatibility. -->
-</b:includable>
-                <b:includable id='postShareButtons'>
-  <div class='byline post-share-buttons goog-inline-block'>
-    <b:with value='data:sharingId ?: ((data:widget.instanceId ?: &quot;sharing&quot;) + &quot;-&quot; + (data:regionName ?: &quot;byline&quot;) + &quot;-&quot; + data:post.id)' var='sharingId'>
-      <!-- Note: 'sharingButtons' includable is from the default Sharing widget markup. -->
-      <b:include data='{                                                sharingId: data:sharingId,                                                originalUrl: data:post.url,                                                platforms: data:this.sharing.platforms,                                                shareUrl: data:post.shareUrl,                                                shareTitle: data:post.title,                                              }' name='sharingButtons'/>
-    </b:with>
-  </div>
-</b:includable>
-                <b:includable id='postTimestamp'>
-  <span class='byline post-timestamp'>
-    <data:byline.label/>
-    <b:if cond='data:post.url'>
-      <meta expr:content='data:post.url.canonical'/>
-      <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'>
-        <time class='published' expr:datetime='data:post.date.iso8601' expr:title='data:post.date.iso8601'>
-          <data:post.date/>
-        </time>
-      </a>
-    </b:if>
-  </span>
-</b:includable>
-                <b:includable id='postTitle' var='post'>
-  <a expr:name='data:post.id'/>
-  <b:if cond='data:post.title != &quot;&quot;'>
-    <h3 class='post-title entry-title'>
-      <b:if cond='data:post.link or (data:post.url and data:view.url != data:post.url)'>
-        <a expr:href='data:post.link ?: data:post.url'><data:post.title/></a>
-      <b:else/>
-        <data:post.title/>
-      </b:if>
-    </h3>
-  </b:if>
-</b:includable>
-                <b:includable id='previousPageLink'>
-  <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:messages.newerPosts'>
-    <data:messages.newerPosts/>
-  </a>
-</b:includable>
-                <b:includable id='sharingButton'>
-  <span expr:aria-label='data:platform.shareMessage' expr:class='&quot;sharing-platform-button sharing-element-&quot; + data:platform.key' expr:data-href='data:shareUrl + &quot;&amp;target=&quot; + data:platform.target' expr:data-url='data:originalUrl' expr:title='data:platform.shareMessage' role='menuitem' tabindex='-1'>
-    <b:include name='sharingPlatformIcon'/>
-    <span class='platform-sharing-text'><data:platform.name/></span>
-  </span>
-</b:includable>
-                <b:includable id='sharingButtonContent'>
-  <div class='flat-icon-button ripple'>
-    <b:include name='shareIcon'/>
-  </div>
-</b:includable>
-                <b:includable id='sharingButtons'>
-  <div class='sharing' expr:aria-owns='&quot;sharing-popup-&quot; + data:sharingId' expr:data-title='data:shareTitle'>
-    <button class='sharing-button touch-icon-button' expr:aria-controls='&quot;sharing-popup-&quot; + data:sharingId' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-button-&quot; + data:sharingId' role='button'>
-      <b:include name='sharingButtonContent'/>
-    </button>
-    <b:include name='sharingButtonsMenu'/>
-  </div>
-</b:includable>
-                <b:includable id='sharingButtonsMenu'>
-  <div class='share-buttons-container'>
-    <ul aria-hidden='true' class='share-buttons hidden' expr:aria-label='data:messages.share.escaped' expr:id='&quot;sharing-popup-&quot; + data:sharingId' role='menu'>
-      <b:loop values='(data:platforms ?: data:blog.sharing.platforms) filter (p =&gt; p.key not in {&quot;blogThis&quot;})' var='platform'>
-        <li>
-          <b:include name='sharingButton'/>
-        </li>
-      </b:loop>
-      <li aria-hidden='true' class='hidden'>
-        <b:include name='otherSharingButton'/>
-      </li>
-    </ul>
-  </div>
-</b:includable>
-                <b:includable id='sharingPlatformIcon'>
-  <b:include data='{ iconClass: (&quot;touch-icon sharing-&quot; + data:platform.key) }' expr:name='data:platform.key + &quot;Icon&quot;'/>
-</b:includable>
-                <b:includable id='threadedCommentForm' var='post'>
-  <div class='comment-form'>
-    <a name='comment-form'/>
-    <h4 id='comment-post-message'><data:messages.postAComment/></h4>
-    <b:if cond='data:this.messages.blogComment != &quot;&quot;'>
-      <p><data:this.messages.blogComment/></p>
-    </b:if>
-    <b:include data='post' name='commentFormIframeSrc'/>
-    <iframe allowtransparency='allowtransparency' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight ?: &quot;90px&quot;' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
-    <data:post.cmtfpIframe/>
-    <script type='text/javascript'>
-      BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
-    </script>
-  </div>
-</b:includable>
-                <b:includable id='threadedCommentJs' var='post'>
-  <script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
-  <b:template-script inline='true' name='threaded_comments'/>
-  <script type='text/javascript'>
-    blogger.widgets.blog.initThreadedComments(
-        <data:post.commentJso/>,
-        <data:post.commentMsgs/>,
-        <data:post.commentConfig/>);
-  </script>
-</b:includable>
-                <b:includable id='threadedComments' var='post'>
-  <section class='comments threaded' expr:data-embed='data:post.embedCommentForm' expr:data-num-comments='data:post.numberOfComments' id='comments'>
-    <a name='comments'/>
-
-    <b:include name='commentsTitle'/>
-
-    <div class='comments-content'>
-      <b:if cond='data:post.embedCommentForm'>
-        <b:include data='post' name='threadedCommentJs'/>
-      </b:if>
-      <div id='comment-holder'>
-         <data:post.commentHtml/>
-      </div>
-    </div>
-
-    <p class='comment-footer'>
-      <b:if cond='data:post.allowNewComments'>
-        <b:include data='post' name='threadedCommentForm'/>
-      <b:else/>
-        <data:post.noNewCommentsText/>
-      </b:if>
-      <b:if cond='data:post.showManageComments'>
-        <b:include data='post' name='manageComments'/>
-      </b:if>
-    </p>
-
-    <b:if cond='data:showCmtPopup'>
-      <div id='comment-popup'>
-        <iframe allowtransparency='allowtransparency' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'>
-        </iframe>
-      </div>
-    </b:if>
-  </section>
-</b:includable>
-                <b:includable id='tooltipCss'>
-  <!-- LINT.IfChange -->
-  <style>
-    .post-body a.b-tooltip-container {
-      position: relative;
-      display: inline-block;
-    }
-
-    .post-body a.b-tooltip-container .b-tooltip {
-      display: block !important;
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translate(-20%, 1px);
-      visibility: hidden;
-      opacity: 0;
-      z-index: 1;
-      transition: opacity 0.2s ease-in-out;
-    }
-
-    .post-body a.b-tooltip-container .b-tooltip iframe {
-      width: 200px;
-      height: 198px;
-      max-width: none;
-      border: none;
-      border-radius: 20px;
-      box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
-    }
-
-    @media (hover: hover) {
-      .post-body a.b-tooltip-container:hover .b-tooltip {
-        visibility: visible;
-        opacity: 1;
-      }
-    }
-  </style>
-  <!-- LINT.ThenChange(//depot/google3/java/com/google/blogger/b2/layouts/widgets/v2-style.css) -->
-</b:includable>
-              </b:widget>
-            </b:section>
         </div>
 
         <nav class='bottom-nav'>
-            <a class='nav-link' href='/'><i class='fa-solid fa-house-chimney'/><span>Beranda</span></a>
-            <a class='nav-link' href='https://www.madasa.ponpes.id/'><i class='fa-solid fa-circle-user'/><span>Profil</span></a>
-            <button class='nav-link' onclick='openLogin()'><i class='fa-solid fa-right-to-bracket'/><span>Login</span></button>
+            <a class='nav-link' href='#'><i class='fa-solid fa-house-chimney'></i><span>Beranda</span></a>
+            <a class='nav-link' href='https://www.madasa.ponpes.id/'><i class='fa-solid fa-circle-user'></i><span>Profil</span></a>
+            <button class='nav-link' onclick='openLogin()'><i class='fa-solid fa-right-to-bracket'></i><span>Login</span></button>
         </nav>
     </div>
 
+    <!-- Modals -->
     <div class='modal-overlay' id='loginModal'>
         <div class='modal-content'>
             <span onclick='closeAllModals()' style='position:absolute; top:15px; right:20px; cursor:pointer; font-size:24px; color:#ccc;'>&#215;</span>
             <h3 style='color:var(--primary-color); font-weight:800; margin-top:0;'>Login Sistem</h3>
             <form id='loginForm' onsubmit='handleLogin(event)'>
-                <div class='error-notif' id='loginError'/>
-                <div class='input-group'><i class='fa-solid fa-user main-icon'/><input id='username' placeholder='Username' type='text'/></div>
-                <div class='input-group'><i class='fa-solid fa-lock main-icon'/><input id='password' placeholder='Password' type='password'/><i class='fa-solid fa-eye-slash toggle-pass' onclick='togglePass()'/></div>
+                <div class='error-notif' id='loginError'></div>
+                <div class='input-group'><i class='fa-solid fa-user main-icon'></i><input id='username' placeholder='Username' type='text'/></div>
+                <div class='input-group'><i class='fa-solid fa-lock main-icon'></i><input id='password' placeholder='Password' type='password'/><i class='fa-solid fa-eye-slash toggle-pass' onclick='togglePass()'></i></div>
                 <button class='btn-submit' type='submit'>MASUK</button>
             </form>
         </div>
     </div>
 
-    <div class='modal-overlay' id='loadingModal'><div class='modal-content'><i class='fa-solid fa-spinner fa-spin' style='font-size:50px; color:var(--primary-color); margin-bottom:15px;'/><div style='font-weight:700; font-size:1.1rem;'>Memproses...</div><p style='font-size:0.85rem; color:#666;'>Sedang mengirim data.</p></div></div>
+    <div class='modal-overlay' id='loadingModal'><div class='modal-content'><i class='fa-solid fa-spinner fa-spin' style='font-size:50px; color:var(--primary-color); margin-bottom:15px;'></i><div style='font-weight:700; font-size:1.1rem;'>Memproses...</div><p style='font-size:0.85rem; color:#666;'>Sedang mengirim data.</p></div></div>
 
-    <div class='modal-overlay' id='successModal'><div class='modal-content'><i class='fa-solid fa-circle-check' style='font-size:50px; color:#2ecc71; margin-bottom:15px;'/><div style='font-weight:700; font-size:1.1rem;'>Berhasil!</div><p style='font-size:0.85rem; color:#666;'>Data telah diproses.</p><button class='btn-ok' onclick='closeAllModals()'>OK</button></div></div>
+    <div class='modal-overlay' id='successModal'><div class='modal-content'><i class='fa-solid fa-circle-check' style='font-size:50px; color:#2ecc71; margin-bottom:15px;'></i><div style='font-weight:700; font-size:1.1rem;'>Berhasil!</div><p style='font-size:0.85rem; color:#666;'>Data telah diproses.</p><button class='btn-ok' onclick='closeAllModals()'>OK</button></div></div>
 
-    <div id='toastNotif'><i class='fa-solid fa-circle-exclamation'/><span id='toastMsg'/></div>
+    <div id='toastNotif'><i class='fa-solid fa-circle-exclamation'></i><span id='toastMsg'></span></div>
 
     <script type='text/javascript'>
-    //<![CDATA[
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzvBua4tWT9umxIW-MsEyE65BSstUdNlhwFe5cGKKfbIeHWRn9WQu2jZGlom6NuN6G5Gw/exec';
         let dataSantriGlobal = [];
 
-        /* --- LOGIKA SCROLL REVEAL --- */
         let lastScrollTop = 0;
         window.addEventListener("scroll", function() {
             let st = window.pageYOffset || document.documentElement.scrollTop;
@@ -1030,7 +318,6 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-        /* --- LOGIKA DAFTAR SANTRI & FILTER DENGAN URUTAN TERBARU --- */
         async function muatDaftarSantri() {
           const wadah = document.getElementById('listSantriTampil');
           try {
@@ -1050,7 +337,6 @@
             return;
           }
           
-          // DATA DIBALIK AGAR TERBARU DI ATAS (.reverse())
           const dataTerbaru = data.slice().reverse();
 
           dataTerbaru.forEach(s => {
@@ -1078,7 +364,6 @@
           }
         }
 
-        /* --- LOGIKA PREVIEW GAMBAR --- */
         function aktifkanPreview() {
             const pairs = [
                 {input: 'fotoSantri', img: 'previewFoto', box: 'boxPreviewFoto', name: 'nameFoto'},
@@ -1104,7 +389,6 @@
         }
         aktifkanPreview();
 
-        /* --- LOGIKA MODAL --- */
         function openModalEffect(id) {
             document.getElementById(id).style.display = "flex";
             window.history.pushState({modalOpen: id}, ""); 
@@ -1145,7 +429,6 @@
             }, 1000);
         }
 
-        /* --- LOGIKA SUBMIT FORM --- */
         document.getElementById('pendaftaranForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const formElements = this.querySelectorAll('input, select, textarea');
@@ -1195,7 +478,6 @@
                         e.target.reset();
                         document.getElementById('boxPreviewFoto').style.display = 'none';
                         document.getElementById('boxPreviewKK').style.display = 'none';
-                        // REFRESH DAFTAR SANTRI OTOMATIS
                         muatDaftarSantri();
                     }).catch(err => {
                         document.getElementById('loadingModal').style.display = "none";
@@ -1207,9 +489,7 @@
 
         window.onclick = function(e) { if (e.target.className == 'modal-overlay') closeAllModals(); }
         
-        // Load data santri saat web dibuka
         window.addEventListener('load', muatDaftarSantri);
-    //]]>
     </script>
 </body>
 </html>
