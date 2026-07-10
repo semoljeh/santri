@@ -174,9 +174,68 @@
         #toastNotif { visibility: hidden; min-width: 250px; background-color: #e74c3c; color: #fff; text-align: center; border-radius: 12px; padding: 15px 20px; position: fixed; z-index: 3000; left: 50%; bottom: 20px; transform: translateX(-50%); font-size: 0.9rem; font-weight: bold; opacity: 0; transition: 0.3s; }
         #toastNotif.show { visibility: visible; opacity: 1; bottom: 100px; }
 
-        .filter-container { display: flex; gap: 8px; justify-content: center; margin-bottom: 15px; flex-wrap: wrap; padding: 0 10px; }
-        .filter-btn { padding: 8px 12px; border-radius: 20px; border: 1px solid var(--primary-color); background: white; color: var(--primary-color); cursor: pointer; font-size: 11px; font-weight: bold; transition: 0.3s; }
-        .filter-btn.active { background: var(--primary-color); color: white; }
+/* --- WADAH TOMBOL FILTER (Menjadi Grid 2x2) --- */
+.filter-container { 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Membagi otomatis menjadi 2 kolom yang sama besar */
+    gap: 12px; /* Jarak yang rapi antar tombol */
+    margin-bottom: 25px; 
+    padding: 0 10px; 
+}
+
+/* --- DESAIN DASAR TOMBOL & DROPDOWN --- */
+.filter-btn { 
+    width: 100%; /* Memaksa semua tombol mengisi kolom gridnya masing-masing secara penuh */
+    box-sizing: border-box;
+    padding: 10px 12px; 
+    border-radius: 30px; 
+    border: 1.5px solid var(--primary-color); 
+    background-color: #ffffff; 
+    color: var(--primary-color); 
+    cursor: pointer; 
+    font-size: 11px; 
+    font-weight: 800; 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04); 
+    font-family: inherit;
+    outline: none;
+    text-align: center;
+}
+
+/* Efek saat disentuh / digeser (Hover) */
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 137, 123, 0.15);
+}
+
+/* Efek saat tombol aktif / dipilih */
+.filter-btn.active { 
+    background-color: var(--primary-color); /* Ganti dari background menjadi background-color */
+    color: white; 
+    box-shadow: 0 4px 15px rgba(0, 137, 123, 0.4); 
+}
+
+/* --- DESAIN KHUSUS DROPDOWN (Menghapus Panah Bawaan Browser) --- */
+select.filter-btn {
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    /* Menambahkan ikon panah modern (SVG) buatan sendiri */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300897b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    padding-right: 35px; /* Memberi ruang agar teks tidak menabrak panah */
+}
+
+/* Ubah panah jadi putih saat dropdown aktif dan kunci posisinya */
+select.filter-btn.active {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-color: var(--primary-color);
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+}
         
         .list-scroll-box { 
             max-height: 250px; overflow-y: auto; padding: 5px; margin-top: 10px;
@@ -193,6 +252,21 @@
 /* Tambahkan 2 baris kode di bawah ini: */
 .santri-info-wrapper { display: flex; align-items: center; gap: 12px; }
 .santri-foto { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-color); background: #eee; flex-shrink: 0; }
+
+
+.santri-no {
+    background: #e0f2f1; /* Hijau pudar yang lembut */
+    color: var(--primary-color);
+    font-size: 11px;
+    font-weight: 900;
+    min-width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
 		
         .santri-meta { font-size: 9px; color: #999; text-align: right; }
         .santri-nama-list { font-weight: 800; color: var(--text-dark); font-size: 13px; text-transform: uppercase; margin-bottom: 2px; }
@@ -263,6 +337,39 @@
             transform: scale(0.95); /* Tambahan efek mengecil sedikit saat ditekan */
         }
 		
+		/* --- DESAIN MINIMALIS MODERN JUDUL SANTRI TERDAFTAR --- */
+.santri-terdaftar-header {
+    text-align: center;
+    margin-top: 40px;    /* Jarak lega dari atas */
+    margin-bottom: 25px; /* Jarak lega ke tombol filter */
+    width: 100%;
+}
+
+.santri-terdaftar-header h3 {
+    color: var(--primary-color);
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin: 0 0 10px 0;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Garis bawah estetik ala aplikasi modern */
+.modern-line {
+    height: 1.5px; /* Dibuat lebih tipis */
+    width: 240px; /* Dibuat lebih panjang menyesuaikan lebar teks judul */
+    
+    /* Efek gradasi: Transparan di kiri -> Emas di tengah -> Transparan di kanan */
+    background: linear-gradient(to right, transparent, #d4af37, transparent); 
+    
+    margin: 0 auto;
+    border-radius: 10px;
+}
+		
+		
     </style>
 </head>
 <body>
@@ -316,42 +423,43 @@
                     </div>
 					
 					
-                    <div class='input-group-form reveal reveal-up'>
+                   <div class='input-group-form reveal reveal-up'>
     <label>Tempat, Tanggal Lahir</label>
-    <div style="display: flex; gap: 8px; align-items: center;">
-        <!-- Kolom 1: Tempat Lahir -->
-        <input name='tempat_lahir' placeholder='Tempat Lahir' type='text' style="flex: 2; padding: 12px;"/>
+    
+    <div style="display: flex; flex-direction: column; gap: 10px;">
         
-        <!-- Kolom 2: Auto Koma Bawah -->
-        <span style="font-size: 1.5rem; font-weight: bold; color: #555; transform: translateY(-5px);">,</span>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <input name='tempat_lahir' placeholder='Tempat Lahir' type='text' style="width: 100%; padding: 12px;"/>
+            <span style="font-size: 1.5rem; font-weight: bold; color: #555; transform: translateY(-5px);">,</span>
+        </div>
 
-        <!-- Kolom 3: Pilihan Tanggal -->
-        <select name='tanggal_lahir' style="flex: 1; padding: 12px;">
-            <option value=''>Tgl</option>
-            <option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option>
-            <option value='11'>11</option><option value='12'>12</option><option value='13'>13</option><option value='14'>14</option><option value='15'>15</option><option value='16'>16</option><option value='17'>17</option><option value='18'>18</option><option value='19'>19</option><option value='20'>20</option>
-            <option value='21'>21</option><option value='22'>22</option><option value='23'>23</option><option value='24'>24</option><option value='25'>25</option><option value='26'>26</option><option value='27'>27</option><option value='28'>28</option><option value='29'>29</option><option value='30'>30</option><option value='31'>31</option>
-        </select>
+        <div style="display: flex; gap: 8px;">
+            <select name='tanggal_lahir' style="flex: 1; padding: 12px; min-width: 0;">
+                <option value=''>Tgl</option>
+                <option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option>
+                <option value='11'>11</option><option value='12'>12</option><option value='13'>13</option><option value='14'>14</option><option value='15'>15</option><option value='16'>16</option><option value='17'>17</option><option value='18'>18</option><option value='19'>19</option><option value='20'>20</option>
+                <option value='21'>21</option><option value='22'>22</option><option value='23'>23</option><option value='24'>24</option><option value='25'>25</option><option value='26'>26</option><option value='27'>27</option><option value='28'>28</option><option value='29'>29</option><option value='30'>30</option><option value='31'>31</option>
+            </select>
 
-        <!-- Kolom 4: Pilihan Bulan -->
-        <select name='bulan_lahir' style="flex: 1.5; padding: 12px;">
-            <option value=''>Bulan</option>
-            <option value='Januari'>Januari</option>
-            <option value='Februari'>Februari</option>
-            <option value='Maret'>Maret</option>
-            <option value='April'>April</option>
-            <option value='Mei'>Mei</option>
-            <option value='Juni'>Juni</option>
-            <option value='Juli'>Juli</option>
-            <option value='Agustus'>Agustus</option>
-            <option value='September'>September</option>
-            <option value='Oktober'>Oktober</option>
-            <option value='November'>November</option>
-            <option value='Desember'>Desember</option>
-        </select>
+            <select name='bulan_lahir' style="flex: 1.5; padding: 12px; min-width: 0;">
+                <option value=''>Bulan</option>
+                <option value='Januari'>Januari</option>
+                <option value='Februari'>Februari</option>
+                <option value='Maret'>Maret</option>
+                <option value='April'>April</option>
+                <option value='Mei'>Mei</option>
+                <option value='Juni'>Juni</option>
+                <option value='Juli'>Juli</option>
+                <option value='Agustus'>Agustus</option>
+                <option value='September'>September</option>
+                <option value='Oktober'>Oktober</option>
+                <option value='November'>November</option>
+                <option value='Desember'>Desember</option>
+            </select>
 
-        <!-- Kolom 5: Isi Tahun -->
-        <input name='tahun_lahir' placeholder='Tahun' type='number' style="flex: 1; padding: 12px;"/>
+            <input name='tahun_lahir' placeholder='Tahun' type='number' style="flex: 1; padding: 12px; min-width: 0;"/>
+        </div>
+        
     </div>
 </div>
 					
@@ -414,15 +522,40 @@
                 </form>
             </div>
 
-            <div class='form-section-title reveal reveal-up' style='text-align:center; background:none; border:none; font-size:1.1rem;'>SANTRI TERDAFTAR</div>
-            <div style='border-bottom: 1px solid #009688; margin-bottom: 20px;'></div>
+<div class='santri-terdaftar-header reveal reveal-up'>
+    <h3><i class="fa-solid fa-users-viewfinder"></i> SANTRI TERDAFTAR</h3>
+    <div class="modern-line"></div>
+</div>
             
-            <div class='filter-container reveal reveal-up' id='filterBar'>
-              <button class='filter-btn active' onclick='filterKelas("SEMUA", this)'>SEMUA</button>
-              <button class='filter-btn' onclick='filterKelas("TK RA", this)'>TK RA</button>
-              <button class='filter-btn' onclick='filterKelas("IBTIDAIYAH", this)'>IBTIDAIYAH</button>
-              <button class='filter-btn' onclick='filterKelas("TSANAWIYAH", this)'>TSANAWIYAH</button>
-            </div>
+<div class='filter-container reveal reveal-up' id='filterBar'>
+    <button class='filter-btn active' id='btnSemua' onclick='filterSemua()'>SEMUA</button>
+    
+    <select class='filter-btn' onchange='filterDropdown(this)'>
+        <option value='' disabled selected>TK RA</option>
+        <option value='TK RA I'>TK RA I</option>
+        <option value='TK RA II'>TK RA II</option>
+        <option value='TK RA III'>TK RA III</option>
+        <option value='TK RA IV'>TK RA IV</option>
+        <option value='TK RA V'>TK RA V</option>
+    </select>
+
+    <select class='filter-btn' onchange='filterDropdown(this)'>
+        <option value='' disabled selected>IBTIDAIYAH</option>
+        <option value='I IBTIDAIYAH'>I IBTIDAIYAH</option>
+        <option value='II IBTIDAIYAH'>II IBTIDAIYAH</option>
+        <option value='III IBTIDAIYAH'>III IBTIDAIYAH</option>
+        <option value='IV IBTIDAIYAH'>IV IBTIDAIYAH</option>
+        <option value='V IBTIDAIYAH'>V IBTIDAIYAH</option>
+        <option value='VI IBTIDAIYAH'>VI IBTIDAIYAH</option>
+    </select>
+
+    <select class='filter-btn' onchange='filterDropdown(this)'>
+        <option value='' disabled selected>TSANAWIYAH</option>
+        <option value='I TSANAWIYAH'>I TSANAWIYAH</option>
+        <option value='II TSANAWIYAH'>II TSANAWIYAH</option>
+        <option value='III TSANAWIYAH'>III TSANAWIYAH</option>
+    </select>
+</div>
 
             <div class='list-scroll-box reveal reveal-up' id='listSantriTampil'>
               <p style='text-align:center; font-size:12px; color:#888;'>Memuat data santri...</p>
@@ -515,45 +648,79 @@
         }
 
 function renderList(data) {
-          const wadah = document.getElementById('listSantriTampil');
-          wadah.innerHTML = '';
-          if (!data || data.length === 0) {
-            wadah.innerHTML = "<p style='text-align:center; font-size:12px; color:#888;'>Belum ada santri terdaftar.</p>";
-            return;
-          }
-          
-          const dataTerbaru = data.slice().reverse();
+    const wadah = document.getElementById('listSantriTampil');
+    wadah.innerHTML = '';
+    
+    if (!data || data.length === 0) {
+        wadah.innerHTML = "<p style='text-align:center; font-size:12px; color:#888;'>Belum ada santri terdaftar.</p>";
+        return;
+    }
+    
+    const dataTerbaru = data.slice().reverse();
 
-          dataTerbaru.forEach(s => {
-            // Jika ada s.foto, pakai foto itu. Jika tidak ada/gagal dimuat, pakai ikon default.
-            const fotoSrc = s.foto ? s.foto : 'https://cdn-icons-png.flaticon.com/512/847/847969.png';
-            
-            wadah.innerHTML += `
-              <div class="list-item-santri">
+    // Tambahkan parameter "index" di dalam forEach
+    dataTerbaru.forEach((s, index) => {
+        const fotoSrc = s.foto ? s.foto : 'https://cdn-icons-png.flaticon.com/512/847/847969.png';
+        
+        // Buat perhitungan nomor urut (dimulai dari 1)
+        const nomorUrut = index + 1;
+        
+        wadah.innerHTML += `
+            <div class="list-item-santri">
                 <div class="santri-info-wrapper">
-                  <img src="${fotoSrc}" class="santri-foto" alt="Foto Santri" onerror="this.src='https://cdn-icons-png.flaticon.com/512/847/847969.png'">
-                  <div>
-                    <div class="santri-nama-list">${s.nama}</div>
-                    <div class="santri-kelas-tag">${s.kelas}</div>
-                  </div>
+                    <!-- Elemen Nomor Urut Baru -->
+                    <div class="santri-no">${nomorUrut}</div>
+                    
+                    <img src="${fotoSrc}" class="santri-foto" alt="Foto Santri" onerror="this.src='https://cdn-icons-png.flaticon.com/512/847/847969.png'">
+                    <div>
+                        <div class="santri-nama-list">${s.nama}</div>
+                        <div class="santri-kelas-tag">${s.kelas}</div>
+                    </div>
                 </div>
                 <div class="santri-meta">${s.waktu}</div>
-              </div>
-            `;
-          });
-        }
+            </div>
+        `;
+    });
+}
 
-        function filterKelas(kategori, btn) {
-          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
+function filterSemua() {
+    // 1. Aktifkan warna hijau pada tombol SEMUA
+    document.getElementById('btnSemua').classList.add('active');
+    
+    // 2. Kembalikan semua dropdown ke teks judul awalnya dan hilangkan warnanya
+    const dropdowns = document.querySelectorAll('#filterBar select');
+    dropdowns.forEach(select => {
+        select.selectedIndex = 0; // Reset ke opsi paling atas
+        select.classList.remove('active');
+    });
 
-          if (kategori === "SEMUA") {
-            renderList(dataSantriGlobal);
-          } else {
-            const filtered = dataSantriGlobal.filter(s => s.kelas.toUpperCase().includes(kategori.toUpperCase()));
-            renderList(filtered);
-          }
+    // 3. Tampilkan semua data santri
+    renderList(dataSantriGlobal);
+}
+
+function filterDropdown(elemen) {
+    // 1. Matikan warna hijau dari tombol SEMUA
+    document.getElementById('btnSemua').classList.remove('active');
+    
+    // 2. Reset dropdown lain agar tidak ada 2 dropdown yang aktif bersamaan
+    const dropdowns = document.querySelectorAll('#filterBar select');
+    dropdowns.forEach(select => {
+        if (select !== elemen) {
+            select.selectedIndex = 0;
+            select.classList.remove('active');
         }
+    });
+
+    // 3. Beri warna hijau pada dropdown yang sedang dipilih
+    elemen.classList.add('active');
+
+    // 4. Saring data berdasarkan nama kelas yang spesifik
+    const kelasPilihan = elemen.value;
+    const dataDisaring = dataSantriGlobal.filter(santri => santri.kelas === kelasPilihan);
+    
+    // 5. Tampilkan hasil filternya
+    renderList(dataDisaring);
+}
 
         function aktifkanPreview() {
             const pairs = [
