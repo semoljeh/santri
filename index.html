@@ -24,10 +24,10 @@
         }
 
         body { 
-            background: var(--bg-body); 
+            background: #e5e9ea; /* Latar luar agak gelap agar aplikasi menonjol */
             font-family: 'Segoe UI', sans-serif; 
             margin: 0; 
-            padding-bottom: 120px;
+            padding-bottom: 0; 
             display: flex;
             flex-direction: column;
             align-items: center; 
@@ -38,10 +38,12 @@
             width: 100%;
             max-width: var(--app-width);
             min-height: 100vh;
-            background: var(--bg-body);
+            background: #ffffff; /* Latar dalam aplikasi putih bersih */
             position: relative;
+            display: flex;
+            flex-direction: column; /* Mengaktifkan mode flex atas-bawah */
+            box-shadow: 0 0 30px rgba(0,0,0,0.1); /* Efek bayangan aplikasi */
         }
-
         header { 
             background: var(--primary-color); 
             color: white; 
@@ -69,7 +71,12 @@
         }
         .header-title p { font-size: 0.85rem; opacity: 0.9; margin-top: 4px; margin-bottom: 0; }
 
-        .content-area { padding: 20px; }
+        .content-area { 
+            padding: 20px; 
+            flex: 1; /* AJAIB: Ini akan mendorong footer ke ujung bawah layar */
+            display: flex;
+            flex-direction: column;
+        }
         .post-card { background: white; border-radius: 20px; padding: 25px; margin-bottom: 15px; box-shadow: var(--shadow); }
 
         .reveal { opacity: 0; transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
@@ -115,15 +122,26 @@
 
         .btn-ok { background: var(--primary-color); color: white; border: none; padding: 10px 40px; border-radius: 10px; font-weight: 700; margin-top: 15px; cursor: pointer; transition: 0.3s; }
 
-        .bottom-nav {
-            position: fixed; bottom: 0; width: 100%; max-width: var(--app-width);
-            background: var(--glass); backdrop-filter: blur(15px);
-            display: flex; padding: 15px 0; border-top: 1px solid rgba(0,0,0,0.05);
-            z-index: 1000; border-radius: 25px 25px 0 0;
+        /* --- FOOTER BARU YANG MENYATU --- */
+        .site-footer {
+            margin-top: auto; /* Memastikan posisi selalu di paling bawah konten */
+            padding: 25px 20px;
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            border-radius: 30px 30px 0 0; /* Lengkungan yang lebih proporsional */
+            width: 100%;
+            box-sizing: border-box;
         }
-        .nav-link { text-decoration: none; color: var(--primary-color); text-align: center; flex: 1; background: none; border: none; cursor: pointer; }
-        .nav-link i { font-size: 20px; display: block; margin-bottom: 4px; }
-        .nav-link span { font-size: 0.7rem; font-weight: 700; }
+        .site-footer p { margin: 0 0 15px 0; font-size: 0.85rem; opacity: 0.9; line-height: 1.5; }
+        .footer-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .footer-btn {
+            color: white; text-decoration: none; font-size: 0.8rem; font-weight: 600;
+            background: rgba(255, 255, 255, 0.15); padding: 8px 16px; 
+            border-radius: 20px; transition: 0.3s; border: none; cursor: pointer;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .footer-btn:hover { background: rgba(255, 255, 255, 0.25); transform: translateY(-2px); }
 
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; z-index: 2000; backdrop-filter: blur(5px); }
         .modal-content { background: white; width: 80%; max-width: 270px; padding: 25px 20px; border-radius: 25px; text-align: center; position: relative; animation: popIn 0.3s ease; }
@@ -151,10 +169,78 @@
         .list-scroll-box::-webkit-scrollbar { width: 6px; }
         .list-scroll-box::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 10px; }
         
-        .list-item-santri { background: white; padding: 12px 15px; border-radius: 15px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow); border-left: 5px solid var(--primary-color); }
+        .list-item-santri { 
+    background: white; padding: 12px 15px; border-radius: 15px; margin-bottom: 10px; 
+    display: flex; justify-content: space-between; align-items: center; 
+    box-shadow: var(--shadow); border-left: 5px solid var(--primary-color); 
+}
+/* Tambahkan 2 baris kode di bawah ini: */
+.santri-info-wrapper { display: flex; align-items: center; gap: 12px; }
+.santri-foto { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-color); background: #eee; flex-shrink: 0; }
+		
         .santri-meta { font-size: 9px; color: #999; text-align: right; }
         .santri-nama-list { font-weight: 800; color: var(--text-dark); font-size: 13px; text-transform: uppercase; margin-bottom: 2px; }
         .santri-kelas-tag { font-size: 10px; color: var(--primary-color); font-weight: bold; }
+		
+	
+        /* --- GAYA UNTUK PESAN PEMBUKA --- */
+        .welcome-card {
+            background: #ffffff; 
+            border-radius: 20px; 
+            padding: 40px 25px; /* Padding diperbesar agar kotak lebih luas dan nyaman dibaca */
+            text-align: center; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06); 
+            
+            /* DUA BARIS AJAIB INI YANG MEMBUAT POSISINYA KE TENGAH */
+            margin-top: auto; 
+            margin-bottom: auto; 
+            
+            border-top: 5px solid var(--primary-color);
+        }
+        .welcome-card h2 { color: var(--primary-color); margin-top: 10px; font-weight: 800; }
+        .welcome-card p { font-size: 0.9rem; color: #555; line-height: 1.6; margin-bottom: 25px; }
+        .btn-start {
+            background: var(--primary-color); color: white; border: none; 
+            padding: 12px 30px; border-radius: 12px; font-size: 1rem; 
+            font-weight: bold; cursor: pointer; transition: 0.3s; 
+            display: inline-flex; align-items: center; gap: 10px;
+            box-shadow: 0 4px 15px rgba(0, 137, 123, 0.4);
+        }
+        .btn-start:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0, 137, 123, 0.6); }
+        
+        /* Menyembunyikan form secara default */
+        #formPendaftaranContainer { display: none; }
+		
+		
+		
+		
+		
+		/* --- GAYA TOMBOL WHATSAPP BISA DIGESER --- */
+        .wa-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 20px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 2px 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: grab;
+            touch-action: none; /* Mencegah layar ikut scroll saat tombol digeser di HP */
+            transition: background-color 0.3s;
+        }
+        .wa-float:active {
+            cursor: grabbing;
+            background-color: #1ebe57;
+        }
+		
     </style>
 </head>
 <body>
@@ -169,15 +255,35 @@
             </div>
         </header>
 
-        <div class='content-area'>
-            <div class='post-card reveal reveal-up'>
-                <div class='pendaftaran-header'>
-                    <h2>Pendaftaran Santri Baru/Lama</h2>
-                    <hr class='title-divider'/>
-                </div>
-                <form id='pendaftaranForm'>
-                    <div class='form-section-title reveal reveal-up'>Identitas Santri</div>
-                    <div class='input-group-form reveal reveal-up'><label>Nama Lengkap</label><input name='nama' placeholder='Contoh: Abdullah' type='text'/></div>
+    <div class='content-area'>
+            
+            <!-- 1. KOTAK PESAN PEMBUKA -->
+            <div class='welcome-card reveal reveal-up active' id='welcomeSection'>
+                <i class="fa-solid fa-mosque" style="font-size: 45px; color: var(--primary-color);"></i>
+                <h2>Ahlan wa Sahlan!</h2>
+                <p>
+                    Assalamu'alaikum Wr. Wb.<br>
+                    Selamat datang di Portal MADASA DIGITAL. Diinformasikan kepada seluruh <strong>Santri Baru</strong> maupun <strong>Santri Lama</strong>, <b>wajib</b> untuk melakukan pendaftaran / herregistrasi ulang melalui portal ini guna pembaruan basis data Madrasah Darussalam.
+                </p>
+                <button class="btn-start" onclick="bukaForm()">
+                    <i class="fa-solid fa-clipboard-user"></i> KLIK DAFTAR
+                </button>
+            </div>
+
+            <!-- 2. KOTAK FORM PENDAFTARAN (Awalnya Disembunyikan) -->
+            <div id='formPendaftaranContainer'>
+                <div class='post-card reveal reveal-up active'>
+                    <div class='pendaftaran-header'>
+                        <h2>Formulir Pendaftaran</h2>
+                        <hr class='title-divider'/>
+                    </div>
+                    
+                    <form id='pendaftaranForm'>
+                        <!-- (Isi form input Nama, Kelas, Foto, dll biarkan sama seperti sebelumnya) -->
+                        <div class='form-section-title'>Identitas Santri</div>
+                        <div class='input-group-form'><label>Nama Lengkap</label><input name='nama' placeholder='Contoh: Abdullah' type='text'/></div>
+	
+	
                     <div class='input-group-form reveal reveal-up'>
                         <label>Jenis Kelamin</label>
                         <select name='jk'>
@@ -240,7 +346,7 @@
                     <div class='form-section-title reveal reveal-up'>Identitas Orang Tua</div>
                     <div class='input-group-form reveal reveal-up'><label>Nama Ayah</label><input name='ayah' placeholder='Nama Lengkap Ayah Kandung' type='text'/></div>
                     <div class='input-group-form reveal reveal-up'><label>Nama Ibu</label><input name='ibu' placeholder='Nama Lengkap Ibu Kandung' type='text'/></div>
-                    <div class='input-group-form reveal reveal-up'><label>Nomor WhatsApp</label><input name='wa' placeholder='081234567890' type='tel'/></div>
+                    <div class='input-group-form reveal reveal-up'><label>Nomor WhatsApp Ortu/Wali</label><input name='wa' placeholder='081234567890' type='tel'/></div>
                     <button class='btn-submit reveal reveal-up' id='btnKirim' type='submit'>KIRIM PENDAFTARAN</button>
                 </form>
             </div>
@@ -260,12 +366,22 @@
             </div>
         </div>
 
-        <nav class='bottom-nav'>
-            <a class='nav-link' href='#'><i class='fa-solid fa-house-chimney'></i><span>Beranda</span></a>
-            <a class='nav-link' href='https://www.madasa.ponpes.id/'><i class='fa-solid fa-circle-user'></i><span>Profil</span></a>
-            <button class='nav-link' onclick='openLogin()'><i class='fa-solid fa-right-to-bracket'></i><span>Login</span></button>
-        </nav>
-    </div>
+      </div> <!-- INI ADALAH PENUTUP DARI <div class='content-area'> -->
+
+        <!-- FOOTER YANG SUDAH DIPERBAIKI (Di luar content-area, di dalam app-container) -->
+        <footer class="site-footer reveal reveal-up">
+            <p>
+                <strong>&copy; 2026 MADRASAH DARUSSALAM</strong><br>
+                Sistem Informasi & Administrasi Pendaftaran Santri
+            </p>
+            <div class="footer-links">
+                <a class="footer-btn" href="https://www.madasa.ponpes.id/" target="_blank">
+                    <i class="fa-solid fa-globe"></i> Website Resmi
+                </a>
+            </div>
+        </footer>
+
+    </div> 
 
     <!-- Modals -->
     <div class='modal-overlay' id='loginModal'>
@@ -286,9 +402,15 @@
     <div class='modal-overlay' id='successModal'><div class='modal-content'><i class='fa-solid fa-circle-check' style='font-size:50px; color:#2ecc71; margin-bottom:15px;'></i><div style='font-weight:700; font-size:1.1rem;'>Berhasil!</div><p style='font-size:0.85rem; color:#666;'>Data telah diproses.</p><button class='btn-ok' onclick='closeAllModals()'>OK</button></div></div>
 
     <div id='toastNotif'><i class='fa-solid fa-circle-exclamation'></i><span id='toastMsg'></span></div>
+	
+			
+			<!-- TOMBOL WHATSAPP MELAYANG -->
+    <div id="wa-float" class="wa-float" title="Hubungi Admin MADASA">
+        <i class="fa-brands fa-whatsapp"></i>
+    </div>
 
     <script type='text/javascript'>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzvBua4tWT9umxIW-MsEyE65BSstUdNlhwFe5cGKKfbIeHWRn9WQu2jZGlom6NuN6G5Gw/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyeTDb_jPBuKGIo-lp0Hdb21G3My_dO2QRQM6U6JkSbeDhn_y6XJgrmjQmAvn1ZN6CI/exec';
         let dataSantriGlobal = [];
 
         let lastScrollTop = 0;
@@ -329,7 +451,7 @@
           }
         }
 
-        function renderList(data) {
+function renderList(data) {
           const wadah = document.getElementById('listSantriTampil');
           wadah.innerHTML = '';
           if (!data || data.length === 0) {
@@ -340,11 +462,17 @@
           const dataTerbaru = data.slice().reverse();
 
           dataTerbaru.forEach(s => {
+            // Jika ada s.foto, pakai foto itu. Jika tidak ada/gagal dimuat, pakai ikon default.
+            const fotoSrc = s.foto ? s.foto : 'https://cdn-icons-png.flaticon.com/512/847/847969.png';
+            
             wadah.innerHTML += `
               <div class="list-item-santri">
-                <div>
-                  <div class="santri-nama-list">${s.nama}</div>
-                  <div class="santri-kelas-tag">${s.kelas}</div>
+                <div class="santri-info-wrapper">
+                  <img src="${fotoSrc}" class="santri-foto" alt="Foto Santri" onerror="this.src='https://cdn-icons-png.flaticon.com/512/847/847969.png'">
+                  <div>
+                    <div class="santri-nama-list">${s.nama}</div>
+                    <div class="santri-kelas-tag">${s.kelas}</div>
+                  </div>
                 </div>
                 <div class="santri-meta">${s.waktu}</div>
               </div>
@@ -490,6 +618,107 @@
         window.onclick = function(e) { if (e.target.className == 'modal-overlay') closeAllModals(); }
         
         window.addEventListener('load', muatDaftarSantri);
+		
+		
+		/* --- FUNGSI BUKA FORM PENDAFTARAN --- */
+        function bukaForm() {
+            // Sembunyikan pesan pembuka
+            document.getElementById('welcomeSection').style.display = 'none';
+            // Tampilkan kotak form
+            const formContainer = document.getElementById('formPendaftaranContainer');
+            formContainer.style.display = 'block';
+            
+            // Gulir otomatis layar ke arah form
+            setTimeout(() => {
+                formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 50);
+        }
+		
+		
+		
+		
+		/* --- LOGIKA WHATSAPP DRAGGABLE & PESAN OTOMATIS --- */
+        const waBtn = document.getElementById('wa-float');
+        let isDraggingWA = false;
+        let startX, startY, initialLeft, initialTop;
+        let clickPrevent = false; // Membedakan antara geser dan klik
+
+        // Event Sentuh (Smartphone)
+        waBtn.addEventListener('touchstart', dragStartWA, {passive: false});
+        document.addEventListener('touchmove', dragWA, {passive: false});
+        document.addEventListener('touchend', dragEndWA);
+
+        // Event Mouse (Komputer/Laptop)
+        waBtn.addEventListener('mousedown', dragStartWA);
+        document.addEventListener('mousemove', dragWA);
+        document.addEventListener('mouseup', dragEndWA);
+
+        function dragStartWA(e) {
+            if (e.type === 'touchstart') {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+            } else {
+                startX = e.clientX;
+                startY = e.clientY;
+            }
+            initialLeft = waBtn.offsetLeft;
+            initialTop = waBtn.offsetTop;
+            isDraggingWA = true;
+            clickPrevent = false; // Reset status klik
+        }
+
+        function dragWA(e) {
+            if (!isDraggingWA) return;
+            e.preventDefault();
+            clickPrevent = true; // Jika digeser, tandai agar tidak terbuka WhatsApp-nya
+
+            let currentX, currentY;
+            if (e.type === 'touchmove') {
+                currentX = e.touches[0].clientX;
+                currentY = e.touches[0].clientY;
+            } else {
+                currentX = e.clientX;
+                currentY = e.clientY;
+            }
+
+            let diffX = currentX - startX;
+            let diffY = currentY - startY;
+
+            // Update posisi baru
+            waBtn.style.left = (initialLeft + diffX) + 'px';
+            waBtn.style.top = (initialTop + diffY) + 'px';
+            waBtn.style.bottom = 'auto'; 
+            waBtn.style.right = 'auto'; 
+        }
+
+        function dragEndWA(e) {
+            isDraggingWA = false;
+        }
+
+        // Aksi ketika tombol diklik
+        waBtn.addEventListener('click', function(e) {
+            if (clickPrevent) {
+                // Jika tadi habis digeser, batalkan klik agar tidak tiba-tiba masuk WA
+                e.preventDefault();
+                return;
+            }
+            
+            // Konfigurasi Nomor & Pesan Sopan
+            const nomorWA = "6282333166659";
+            const pesanSopan = "Assalamu'alaikum Admin Madasa. Mohon maaf mengganggu waktunya, saya izin bertanya terkait pendaftaran santri di MADASA DIGITAL. Mohon arahannya, terima kasih.";
+            
+            // Konversi pesan agar terbaca dengan benar di URL
+            const urlWA = "https://wa.me/" + nomorWA + "?text=" + encodeURIComponent(pesanSopan);
+            
+            // Buka di tab baru (atau langsung ke aplikasi WA di HP)
+            window.open(urlWA, "_blank");
+        });
+		
+		
+
+	
+		
     </script>
+
 </body>
 </html>
