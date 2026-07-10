@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
+
+	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pendaftaran Santri Baru MADASA</title>
+    <title>Pendaftaran Santri MADASA</title>
+    
+    <link rel="icon" href="asset/logoweb.png" type="image/png">
+    
+    <meta content='MADASA DIGITAL - Portal Pendaftaran Santri Baru' property='og:title'>
+    <meta content='Sistem Informasi & Administrasi Pendaftaran Santri Baru MADRASAH DARUSSALAM' property='og:description'>
     
     <!-- Meta Tags -->
     <meta content='MADASA DIGITAL - Portal Pendaftaran Santri Baru' property='og:title'>
@@ -44,8 +50,14 @@
             flex-direction: column; /* Mengaktifkan mode flex atas-bawah */
             box-shadow: 0 0 30px rgba(0,0,0,0.1); /* Efek bayangan aplikasi */
         }
-        header { 
-            background: var(--primary-color); 
+        
+		header { 
+            /* Memberikan lapisan warna hijau khas Madasa yang transparan di atas gambar */
+            background: linear-gradient(rgba(0, 137, 123, 0.8), rgba(0, 137, 123, 0.8)), url('asset/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
             color: white; 
             padding: 35px 20px 15px; 
             text-align: center; 
@@ -122,26 +134,34 @@
 
         .btn-ok { background: var(--primary-color); color: white; border: none; padding: 10px 40px; border-radius: 10px; font-weight: 700; margin-top: 15px; cursor: pointer; transition: 0.3s; }
 
-        /* --- FOOTER BARU YANG MENYATU --- */
+        /* --- FOOTER BARU (LEBIH KECIL & STATIS) --- */
         .site-footer {
-            margin-top: auto; /* Memastikan posisi selalu di paling bawah konten */
-            padding: 25px 20px;
+            margin-top: auto; 
+            padding: 15px 20px; /* Jarak atas-bawah dikurangi dari 25px menjadi 15px */
             background: var(--primary-color);
             color: white;
             text-align: center;
-            border-radius: 30px 30px 0 0; /* Lengkungan yang lebih proporsional */
+            border-radius: 20px 20px 0 0; /* Lengkungan diperkecil agar lebih proporsional */
             width: 100%;
             box-sizing: border-box;
         }
-        .site-footer p { margin: 0 0 15px 0; font-size: 0.85rem; opacity: 0.9; line-height: 1.5; }
-        .footer-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .footer-btn {
-            color: white; text-decoration: none; font-size: 0.8rem; font-weight: 600;
-            background: rgba(255, 255, 255, 0.15); padding: 8px 16px; 
-            border-radius: 20px; transition: 0.3s; border: none; cursor: pointer;
-            display: flex; align-items: center; gap: 8px;
+        .site-footer p { 
+            margin: 0 0 10px 0; /* Jarak bawah teks dikurangi */
+            font-size: 0.75rem; /* Ukuran teks sedikit diperkecil */
+            opacity: 0.9; 
+            line-height: 1.4; 
         }
-        .footer-btn:hover { background: rgba(255, 255, 255, 0.25); transform: translateY(-2px); }
+        .footer-links { 
+            display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; 
+        }
+        .footer-btn {
+            color: white; text-decoration: none; font-size: 0.75rem; font-weight: 600;
+            background: rgba(255, 255, 255, 0.15); 
+            padding: 6px 12px; /* Ukuran tombol diperkecil */
+            border-radius: 15px; transition: 0.3s; border: none; cursor: pointer;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .footer-btn:hover { background: rgba(255, 255, 255, 0.25); }
 
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; z-index: 2000; backdrop-filter: blur(5px); }
         .modal-content { background: white; width: 80%; max-width: 270px; padding: 25px 20px; border-radius: 25px; text-align: center; position: relative; animation: popIn 0.3s ease; }
@@ -187,15 +207,20 @@
         .welcome-card {
             background: #ffffff; 
             border-radius: 20px; 
-            padding: 40px 25px; /* Padding diperbesar agar kotak lebih luas dan nyaman dibaca */
+            padding: 30px 25px; 
             text-align: center; 
             box-shadow: 0 8px 25px rgba(0,0,0,0.06); 
-            
-            /* DUA BARIS AJAIB INI YANG MEMBUAT POSISINYA KE TENGAH */
-            margin-top: auto; 
-            margin-bottom: auto; 
-            
             border-top: 5px solid var(--primary-color);
+            
+            /* --- KODE UNTUK MEMANJANGKAN KOTAK --- */
+            flex: 1; /* Memaksa kotak memanjang ke atas dan ke bawah mengisi ruang */
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; /* Menjaga ikon, teks, dan tombol tetap di tengah secara vertikal */
+            align-items: center; /* Menjaga posisi tetap di tengah secara horizontal */
+            
+            margin-top: 10px; /* Memberikan sedikit celah mepet dari header */
+            margin-bottom: 10px; /* Memberikan sedikit celah mepet dari footer */
         }
         .welcome-card h2 { color: var(--primary-color); margin-top: 10px; font-weight: 800; }
         .welcome-card p { font-size: 0.9rem; color: #555; line-height: 1.6; margin-bottom: 25px; }
@@ -370,7 +395,7 @@
       </div> <!-- INI ADALAH PENUTUP DARI <div class='content-area'> -->
 
         <!-- FOOTER YANG SUDAH DIPERBAIKI (Di luar content-area, di dalam app-container) -->
-        <footer class="site-footer reveal reveal-up">
+       <footer class="site-footer">
             <p>
                 <strong>&copy; 2026 MADRASAH DARUSSALAM</strong><br>
                 Sistem Informasi & Administrasi Pendaftaran Santri
