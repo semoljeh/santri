@@ -49,17 +49,29 @@ function doGet() {
       for (var i = 1; i < data.length; i++) {
         var rawDate = new Date(data[i][0]);
         
+        // Ambil link dari Kolom J (indeks 9)
+       var linkFoto = data[i][9] ? data[i][9].toString() : "";
+        var fotoViewUrl = "";
+        
+        // Ambil ID dari link Google Drive
+        var match = linkFoto.match(/[-\w]{25,}/);
+        if (match) {
+          // GUNAKAN FORMAT INI: Format Thumbnail jauh lebih kebal dari pemblokiran Google
+          fotoViewUrl = "https://drive.google.com/thumbnail?id=" + match[0] + "&sz=w500"; 
+        }
+        
         allData.push({
           rawDateObj: rawDate.getTime(), 
           waktu: Utilities.formatDate(rawDate, "GMT+7", "dd/MM/yyyy HH:mm"),
           nama: data[i][1], 
-          // KELAS sekarang ada di Kolom E (indeks ke-4)
-          kelas: data[i][4]  
+          kelas: data[i][4],
+          foto: fotoViewUrl // Data foto dimasukkan ke sini
         });
       }
     }
   });
 
+  // Urutkan dari yang terbaru
   allData.sort(function(a, b) {
     return b.rawDateObj - a.rawDateObj;
   });

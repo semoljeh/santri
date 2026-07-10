@@ -314,7 +314,48 @@
                             <option value='Perempuan'>Perempuan</option>
                         </select>
                     </div>
-                    <div class='input-group-form reveal reveal-up'><label>Tempat, Tanggal Lahir</label><input name='ttl' placeholder='Contoh: Bangkalan, 2 Desember 2026' type='text'/></div>
+					
+					
+                    <div class='input-group-form reveal reveal-up'>
+    <label>Tempat, Tanggal Lahir</label>
+    <div style="display: flex; gap: 8px; align-items: center;">
+        <!-- Kolom 1: Tempat Lahir -->
+        <input name='tempat_lahir' placeholder='Tempat Lahir' type='text' style="flex: 2; padding: 12px;"/>
+        
+        <!-- Kolom 2: Auto Koma Bawah -->
+        <span style="font-size: 1.5rem; font-weight: bold; color: #555; transform: translateY(-5px);">,</span>
+
+        <!-- Kolom 3: Pilihan Tanggal -->
+        <select name='tanggal_lahir' style="flex: 1; padding: 12px;">
+            <option value=''>Tgl</option>
+            <option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option>
+            <option value='11'>11</option><option value='12'>12</option><option value='13'>13</option><option value='14'>14</option><option value='15'>15</option><option value='16'>16</option><option value='17'>17</option><option value='18'>18</option><option value='19'>19</option><option value='20'>20</option>
+            <option value='21'>21</option><option value='22'>22</option><option value='23'>23</option><option value='24'>24</option><option value='25'>25</option><option value='26'>26</option><option value='27'>27</option><option value='28'>28</option><option value='29'>29</option><option value='30'>30</option><option value='31'>31</option>
+        </select>
+
+        <!-- Kolom 4: Pilihan Bulan -->
+        <select name='bulan_lahir' style="flex: 1.5; padding: 12px;">
+            <option value=''>Bulan</option>
+            <option value='Januari'>Januari</option>
+            <option value='Februari'>Februari</option>
+            <option value='Maret'>Maret</option>
+            <option value='April'>April</option>
+            <option value='Mei'>Mei</option>
+            <option value='Juni'>Juni</option>
+            <option value='Juli'>Juli</option>
+            <option value='Agustus'>Agustus</option>
+            <option value='September'>September</option>
+            <option value='Oktober'>Oktober</option>
+            <option value='November'>November</option>
+            <option value='Desember'>Desember</option>
+        </select>
+
+        <!-- Kolom 5: Isi Tahun -->
+        <input name='tahun_lahir' placeholder='Tahun' type='number' style="flex: 1; padding: 12px;"/>
+    </div>
+</div>
+					
+					
                     <div class='input-group-form reveal reveal-up'><label>Alamat Domisili</label><textarea name='alamat' placeholder='Contoh: Batukessel Bandang Laok' rows='2'></textarea></div>
                     
                     <div class='input-group-form reveal reveal-up'>
@@ -432,7 +473,7 @@
     </div>
 
     <script type='text/javascript'>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbyeTDb_jPBuKGIo-lp0Hdb21G3My_dO2QRQM6U6JkSbeDhn_y6XJgrmjQmAvn1ZN6CI/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxLPCs0O7Pbbtt4PIpJwHLjEWGH7mMq8PCUSN1Etb8Gdre7e-9YDH22mfrXEeD7cqil/exec';
         let dataSantriGlobal = [];
 
         let lastScrollTop = 0;
@@ -614,11 +655,22 @@ function renderList(data) {
                 readerKK.readAsDataURL(fileKK);
                 readerKK.onload = function() {
                     const b64KK = readerKK.result.split(',')[1];
+					
                     const body = {
-                        nama: e.target.nama.value, jk: e.target.jk.value, ttl: e.target.ttl.value,
-                        alamat: e.target.alamat.value, kelas: e.target.kelas.value,
-                        ayah: e.target.ayah.value, ibu: e.target.ibu.value, wa: e.target.wa.value,
-                        fotoData: b64Foto, fotoName: fileFoto.name, kkData: b64KK, kkName: fileKK.name
+                        nama: e.target.nama.value, 
+                        jk: e.target.jk.value, 
+                        // Baris ini diganti untuk menggabungkan 4 kolom menjadi satu teks utuh
+                        ttl: e.target.tempat_lahir.value + ", " + e.target.tanggal_lahir.value + " " + e.target.bulan_lahir.value + " " + e.target.tahun_lahir.value,
+                        
+                        alamat: e.target.alamat.value, 
+                        kelas: e.target.kelas.value,
+                        ayah: e.target.ayah.value, 
+                        ibu: e.target.ibu.value, 
+                        wa: e.target.wa.value,
+                        fotoData: b64Foto, 
+                        fotoName: fileFoto.name, 
+                        kkData: b64KK, 
+                        kkName: fileKK.name
                     };
 
                     fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(body) })
