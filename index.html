@@ -218,27 +218,28 @@
 		/* --- GAYA TOMBOL WHATSAPP BISA DIGESER --- */
         .wa-float {
             position: fixed;
-            width: 60px;
-            height: 60px;
+            width: 48px; /* Diperkecil dari 60px */
+            height: 48px; /* Diperkecil dari 60px */
             bottom: 40px;
             right: 20px;
             background-color: #25d366;
             color: #FFF;
             border-radius: 50%;
             text-align: center;
-            font-size: 35px;
+            font-size: 26px; /* Ikon diperkecil dari 35px */
             box-shadow: 2px 4px 15px rgba(37, 211, 102, 0.4);
             z-index: 9999;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: grab;
-            touch-action: none; /* Mencegah layar ikut scroll saat tombol digeser di HP */
-            transition: background-color 0.3s;
+            touch-action: none;
+            transition: background-color 0.3s, transform 0.2s;
         }
         .wa-float:active {
             cursor: grabbing;
             background-color: #1ebe57;
+            transform: scale(0.95); /* Tambahan efek mengecil sedikit saat ditekan */
         }
 		
     </style>
